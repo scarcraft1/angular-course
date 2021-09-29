@@ -1,5 +1,5 @@
 <p>padre works!</p>
-<app-hijo texto="hijo 1" (nuevoTexto)="texto = $event"></app-hijo>
-<app-hijo [texto]="texto"></app-hijo>
+<app-hijo class="border-red" style="border: solid 2px;" texto="hijo 1" (nuevoTexto)="texto = $event"></app-hijo>
+<app-hijo [texto]="texto" class="rojo"></app-hijo>
 <app-hijo texto="{{numero}}"></app-hijo>
 {{numero}} {{texto}}

@@ -9,10 +9,18 @@ export class HijoComponent implements OnInit {
   @Input()
   texto: string = '';
 
+
+
   @Output()
   nuevoTexto = new EventEmitter<string>();
 
   meaningOfLife: number = 42;
+
+  clases = {
+    rojo: this.meaningOfLife <= 50,
+    amarilo: this.texto === 'hola',
+    'input-group': true
+  };
 
   constructor() { }
 
