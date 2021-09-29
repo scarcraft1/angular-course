@@ -1,6 +1,6 @@
-import { ContentComponent } from './content/content.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HijoComponent } from "./hijo/hijo.component";
+import { PadreComponent } from "./padre/padre.component";
 
-const COMPONENTS = [ ContentComponent, ToolbarComponent ];
+const COMPONENTS = [ PadreComponent, HijoComponent ];
 
-export { COMPONENTS, ContentComponent, ToolbarComponent }
+export { COMPONENTS, PadreComponent, HijoComponent }
