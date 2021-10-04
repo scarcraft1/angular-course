@@ -4,7 +4,7 @@ import { Directive, HostListener, Input } from '@angular/core';
   selector: '[appShowModal]'
 })
 export class ShowModalDirective {
-  private totalClicks: number = 0;
+  public totalClicks: number = 0;
 
   @Input('appShowModal')
   component: any = true;

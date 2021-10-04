@@ -22,4 +22,10 @@ describe('ContentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'angular-course'`, () => {
+    const fixture = TestBed.createComponent(ContentComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('Content Component');
+  });
 });
