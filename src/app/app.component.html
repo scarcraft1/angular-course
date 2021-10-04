@@ -1,46 +1,4 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<!-- Toolbar -->
-<div style="border: solid 5px red; background: green; color: black;" *ngIf="1 !== 1; else plantilla">
-  <b>Soy el div 1</b>
+<app-test></app-test>
+<div style="border: 1px solid black; padding: .5em;">
+{{data}}
 </div>
-<div style="border: solid 5px red; background: green; color: black;" *ngFor="let i of [1,2,3,4,5]">
-  <b>Soy el div del for #{{i}}</b>
-</div>
-<div [ngSwitch]="componente">
-  <div *ngSwitchCase="'angular-course'">angular-course</div>
-  <div *ngSwitchCase="'angular-course-2'">angular-course-2</div>
-  <div *ngSwitchDefault>output2 {{componente}}</div>
-</div>
-<button (click)="changeComponent()">Cambiar componente</button>
-<div style="border: solid 5px red; background: green; color: blue;">
-  <b>Soy el div 3</b>
-</div>
-<ng-template #plantilla>
-  Cualquier cosa
-</ng-template>
-<ng-container>
-  jkashdkjshdkjh
-</ng-container>
-<app-test>
-  <p class="prueba">Esto es un parrafo</p>
-  <div>Hola amigos</div>
-  <h1>Esto es un encabezado</h1>
-  <p class="prueba">Esto es otro parrafo</p>
-</app-test>
-<app-content></app-content>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-

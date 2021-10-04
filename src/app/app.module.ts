@@ -8,8 +8,6 @@ import { ShowModalDirective } from './directives/show-modal.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    // ToolbarComponent,
-    // ContentComponent
     ...COMPONENTS,
     ShowModalDirective
   ],
