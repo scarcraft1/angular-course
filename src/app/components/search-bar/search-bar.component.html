@@ -1,5 +1,6 @@
 <form name="FormularioPrueba" #formCtrl="ngForm" (ngSubmit)="search($event)">
-<input type="email" placeholder="Buscar" name="emailCtrl" email [pattern]="pattern" [minlength]="10" [maxlength]="15" required [(ngModel)]="formValue.searchTerm" #inputCtrl="ngModel">
+<input type="email" placeholder="Buscar" name="emailCtrl" email [pattern]="pattern" [minlength]="10" [maxlength]="15" required [(ngModel)]="busqueda" #inputCtrl="ngModel">
+<input type="email" placeholder="Buscar" name="emailCtrl" email [pattern]="busqueda" [minlength]="10" [maxlength]="15" required [(ngModel)]="formValue.searchTerm" #inputCtrl="ngModel">
 <div style="padding: .25em 0em;">{{ searchTerm }}</div>
 <div>- {{inputCtrl.errors | json}} -</div>
 <select [(ngModel)]="formValue.selectOption" name="selectCtrl" required #selectCtrl="ngModel" multiple minlength="2">

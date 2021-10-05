@@ -1,1 +1,50 @@
-<p>reactive works!</p>
+<form name="reactiveForm" [formGroup]="form" (ngSubmit)="submit()">
+  <label for="nombre">Nombre</label>
+  <input
+    type="text"
+    id="nombre"
+    name="nombre"
+    class="form-control"
+    formControlName="nombre"
+    [ngClass]="{ 'is-invalid': f.nombre.dirty && f.nombre.invalid }"
+  />
+  <div class="invalid-feedback" *ngIf="f.nombre.dirty && f.nombre.invalid" >
+    {{ f.nombre.errors | json }}
+  </div>
+  <label for="email">Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    class="form-control"
+    formControlName="email"
+  />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    class="form-control"
+    formControlName="password"
+  />
+  <label for="repeatPassword">Repita Password</label>
+  <input
+    type="password"
+    id="repeatPassword"
+    name="repeatPassword"
+    class="form-control"
+    formControlName="repeatPassword"
+  />
+  <div class="form-control">
+    <input type="checkbox" id="agree" name="agree" formControlName="agree" />
+    <label for="agree">He leído y acepto los términos</label>
+  </div>
+  <button type="reset">Reset</button>
+  <button type="submit">Enviar</button>
+</form>
+<div style="background-color: bisque; padding: 1em;">
+  {{form.value | json}}
+</div>
+<div style="background-color: aquamarine; padding: 1em;">
+  {{form.errors | json}}
+</div>

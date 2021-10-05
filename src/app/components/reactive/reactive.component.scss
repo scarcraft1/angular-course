@@ -1,0 +1,19 @@
+.form-control {
+  display: block;
+  width: 50%;
+  padding: .25em;
+  margin-bottom: .5em;
+}
+
+.is-invalid {
+  outline: solid 1px red;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: small;
+}
+
+.form-control:not(.is-invalid) ~ .invalid-feedback {
+  display: none;
+}
