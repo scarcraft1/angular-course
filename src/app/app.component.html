@@ -5,3 +5,8 @@
 <div>
   {{ users$ | async | json }}
 </div>
+<br>
+<div *ngFor="let user of users">
+  {{user | json}}
+  <hr>
+</div>

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
+import { User } from './models/user';
 import { SharedService } from './services/shared.service';
 import { UsersService } from './services/users.service';
 
@@ -8,9 +10,12 @@ import { UsersService } from './services/users.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+
   componente = 'angular-course';
   users$?: Observable<any>;
+  users: any[] = [];
 
   public get data() {
     return this.service.sharedData;
@@ -21,8 +26,30 @@ export class AppComponent implements OnInit {
     private usersService: UsersService
   ) {}
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   ngOnInit(): void {
-    this.users$ = this.usersService.loadUsers();
+    this.users$ = this.usersService.loadUsers().pipe(
+      takeUntil(this.destroy$),
+      tap(console.log),
+      map((results) => results.map((i: any) => i.name)),
+      filter((results) => results.filter((i: any) => i.name?.indexOf('a') >= 0))
+    );
+
+    this.usersService
+      .loadUsers()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (results: User[]) => {
+          this.users = results;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   changeComponent() {
