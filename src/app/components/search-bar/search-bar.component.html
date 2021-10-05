@@ -1,0 +1,42 @@
+<form name="FormularioPrueba" #formCtrl="ngForm" (ngSubmit)="search($event)">
+<input type="email" placeholder="Buscar" name="emailCtrl" email [pattern]="pattern" [minlength]="10" [maxlength]="15" required [(ngModel)]="formValue.searchTerm" #inputCtrl="ngModel">
+<div style="padding: .25em 0em;">{{ searchTerm }}</div>
+<div>- {{inputCtrl.errors | json}} -</div>
+<select [(ngModel)]="formValue.selectOption" name="selectCtrl" required #selectCtrl="ngModel" multiple minlength="2">
+  <option value="">Seleccione opción</option>
+  <option [ngValue]="'opcion1'">opción 1</option>
+  <option value="opcion2">opción 2</option>
+  <option value="opcion3">opción 3</option>
+</select>
+<div>{{selectCtrl.errors | json}}</div>
+<fieldset>
+  <legend>Radio buttons</legend>
+  <input type="radio" name="radio1" required id="radio1" value="radio1" #radio1Ctrl="ngModel" [(ngModel)]="formValue.radioBtns">
+  <label for="radio1">Radio 1</label>
+  <input type="radio" name="radio1" required id="radio2" value="radio2" #radio2Ctrl="ngModel" [(ngModel)]="formValue.radioBtns">
+  <label for="radio2">Radio 2</label>
+  <input type="radio" name="radio1" required id="radio3" value="radio3" #radio3Ctrl="ngModel" [(ngModel)]="formValue.radioBtns">
+  <label for="radio3">Radio 3</label>
+
+  <div>{{radio1Ctrl.value | json}}</div>
+  <div>{{radio2Ctrl.value | json}}</div>
+  <div>{{radio3Ctrl.value | json}}</div>
+</fieldset>
+<fieldset>
+  <legend>checkbox buttons</legend>
+  <input type="checkbox" name="checkbox1" required id="checkbox1" value="checkbox1" requiredTrue #checkbox1Ctrl="ngModel" [(ngModel)]="formValue.checkbox1Btns">
+  <label for="checkbox1">checkbox 1</label>
+  <input type="checkbox" name="checkbox2" required id="checkbox2" value="checkbox2" requiredTrue #checkbox2Ctrl="ngModel" [(ngModel)]="formValue.checkbox2Btns">
+  <label for="checkbox2">checkbox 2</label>
+  <input type="checkbox" name="checkbox3" required id="checkbox3" value="checkbox3" #checkbox3Ctrl="ngModel" [(ngModel)]="formValue.checkbox3Btns">
+  <label for="checkbox3">checkbox 3</label>
+
+  <div>{{checkbox1Ctrl.errors | json}}</div>
+  <div>{{checkbox2Ctrl.errors | json}}</div>
+  <div>{{checkbox3Ctrl.errors | json}}</div>
+</fieldset>
+<input type="submit" value="Buscar">
+</form>
+<div style="background-color: bisque; padding: 1em;">{{formValue |json}}</div>
+<div style="background-color: aquamarine; padding: 1em;">{{formCtrl.errors |json}}</div>
+<div style="background-color: gainsboro; padding: 1em;">{{formCtrl.value |json}}</div>
