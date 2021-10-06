@@ -5,16 +5,18 @@ import { ReactiveComponent, TestComponent, UserEditComponent } from './component
 const routes: Routes = [
   {
     path: '',
+    component: ReactiveComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'users',
     component: TestComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'edit-user',
-    component: UserEditComponent
-  },
-  {
-    path: 'reactive',
-    component: ReactiveComponent
+    children: [
+      {
+        path: ':id/edit-user',
+        component: UserEditComponent
+      }
+    ]
   }
 ];
 

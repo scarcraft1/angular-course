@@ -1,10 +1,4 @@
-<p>Howdy folks!!</p>
-<ng-content select="h1"></ng-content>
-<ng-content></ng-content>
-<ng-content select=".prueba"></ng-content>
-<p>Sayonara baby!</p>
-<p>{{ inputValue }}</p>
-<input type="text" style="width: 100%;" [value]="inputValue" #inputControl />
-<button (click)="inputValue = inputControl.value">
-  Enviar
-</button>
+<h1>Este es el test component</h1>
+<a [routerLink]="['../users']" routerLinkActive="router-link-active" >Usuarios</a>
+<router-outlet></router-outlet>
+<hr>

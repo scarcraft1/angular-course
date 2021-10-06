@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, of, Subject } from 'rxjs';
 import {
   catchError,
@@ -9,10 +10,8 @@ import {
   retry,
   startWith,
   switchMap,
-  takeUntil,
-  tap,
+  takeUntil
 } from 'rxjs/operators';
-import { User } from 'src/app/models/user';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -32,17 +31,18 @@ export class UserEditComponent implements OnInit, OnDestroy {
     this.userId.next(val);
   }
 
-  constructor(fb: FormBuilder, private service: UsersService) {
-    this.form = fb.group({
-      name: ['', Validators.required],
-      website: [''],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
-      username: ['', Validators.required],
-    });
+  constructor(
+    fb: FormBuilder,
+    private service: UsersService,
+    private route: ActivatedRoute) {
+
+    this.form = this.crearFormulario(fb);
+
   }
 
   ngOnInit(): void {
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+
     this.userId
       .pipe(
         startWith(this.userId.value),
@@ -80,5 +80,16 @@ export class UserEditComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+
+  private crearFormulario(fb: FormBuilder) {
+    return fb.group({
+      name: ['', Validators.required],
+      website: [''],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
+      username: ['', Validators.required],
+    });
   }
 }
