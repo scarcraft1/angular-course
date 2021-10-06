@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+  <h1>Editar Usuario:</h1>
+  <div class="input-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" formControlName="name">
+  </div>
+  <div class="input-group">
+    <label for="usuario">Usuario:</label>
+    <input type="text" name="usuario" id="usuario" formControlName="username">
+  </div>
+  <div class="input-group">
+    <label for="website">Página Web:</label>
+    <input type="text" name="website" id="website" formControlName="website">
+  </div>
+  <div class="input-group">
+    <label for="phone">Teléfono:</label>
+    <input type="tel" name="phone" id="phone" formControlName="phone">
+  </div>
+  <div class="input-group">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" formControlName="email">
+  </div>
+
+  <button type="submit" style="padding: .25em .5em; border-radius: 5px; background-color: cornflowerblue; font-weight: bold; color: aliceblue;">Guardar</button>
+</form>

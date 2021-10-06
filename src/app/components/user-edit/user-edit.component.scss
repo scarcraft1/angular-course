@@ -1,0 +1,17 @@
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 1em;
+  margin-bottom: 1.5em;
+
+  &>label {
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 10%;
+  }
+
+  &>input {
+    flex-grow: 1;
+    padding: .25em;
+  }
+}
