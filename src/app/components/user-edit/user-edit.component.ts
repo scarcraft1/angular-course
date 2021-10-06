@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject, of, Subject } from 'rxjs';
 import {
   catchError,
@@ -25,6 +25,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
   private userId = new BehaviorSubject<number>(NaN);
 
   public form: FormGroup;
+  public title: string = '';
 
   @Input()
   public set id(val: number) {
@@ -33,6 +34,7 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   constructor(
     fb: FormBuilder,
+    private router: Router,
     private service: UsersService,
     private route: ActivatedRoute) {
 
@@ -42,6 +44,9 @@ export class UserEditComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.title = this.route.snapshot.data.title;
+    console.log('editar-usuario');
+    // this.router.navigate(['../../users']);
 
     this.userId
       .pipe(

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveComponent, TestComponent, UserEditComponent } from './components';
+import { ReactiveComponent, SearchBarComponent, TestComponent, UserEditComponent } from './components';
 
 const routes: Routes = [
   {
@@ -10,13 +10,21 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    component: TestComponent,
+    // component: TestComponent,
     children: [
       {
         path: ':id/edit-user',
-        component: UserEditComponent
+        component: UserEditComponent,
+        data: {
+          title: 'Editar',
+          roles: ['admin', 'supervisor']
+        }
       }
     ]
+  },
+  {
+    path: '**',
+    component: SearchBarComponent
   }
 ];
 
