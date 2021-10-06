@@ -1,1 +1,8 @@
-<app-user-edit [id]="5"></app-user-edit>
+<a [routerLink]="['']" routerLinkActive="activado">Test</a>
+<br>
+<a [routerLink]="['reactive']" routerLinkActive="activado">Test</a>
+<br>
+<a [routerLink]="['edit-user']"  routerLinkActive="activado">Editar usuario</a>
+<div style="background-color: red; padding: 2em">
+  <router-outlet></router-outlet>
+</div>
