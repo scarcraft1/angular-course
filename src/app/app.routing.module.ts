@@ -12,11 +12,11 @@ const routes: Routes = [
     path: 'users',
     // component: TestComponent,
     loadChildren: () => import('./views/user/user.module').then(i => i.UserModule)
+  },
+  {
+    path: '**',
+    component: SearchBarComponent
   }
-  // {
-  //   path: '**',
-  //   component: SearchBarComponent
-  // }
 ];
 
 @NgModule({

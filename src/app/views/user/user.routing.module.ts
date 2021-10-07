@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutoricedGuard } from 'src/app/guards/autoriced.guard';
 import { UserResolver } from 'src/app/resolvers/user.resolver';
-import { UserDetailComponent, UserEditComponent } from './components';
+import { P404Component, UserDetailComponent, UserEditComponent } from './components';
 
 const routes: Routes = [
   {
@@ -24,6 +24,10 @@ const routes: Routes = [
     resolve: {
       user: UserResolver
     }
+  },
+  {
+    path: '**',
+    component: P404Component
   }
 ];
 
