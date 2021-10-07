@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 
@@ -18,7 +18,8 @@ export class UsersService {
   }
 
   public loadUser(id: number): Observable<User | undefined> {
-    return this.loadUsers().pipe(map(users => users.find(i => i.id == id)));
+    return this.loadUsers()
+    .pipe(map(users => users.find(i => i.id == id)));
   }
 
 }

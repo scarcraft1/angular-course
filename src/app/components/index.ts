@@ -4,6 +4,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const COMPONENTS = [
   ContentComponent,
@@ -11,7 +12,8 @@ const COMPONENTS = [
   TestComponent,
   SearchBarComponent,
   ReactiveComponent,
-  UserEditComponent
+  UserEditComponent,
+  UserDetailComponent
 ];
 
 export {
@@ -21,5 +23,6 @@ export {
   TestComponent,
   SearchBarComponent,
   ReactiveComponent,
-  UserEditComponent
+  UserEditComponent,
+  UserDetailComponent
 }
