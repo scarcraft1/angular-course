@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveComponent, SearchBarComponent, UserDetailComponent, UserEditComponent } from './components';
-import { AutoricedGuard } from './guards/autoriced.guard';
-import { UserResolver } from './resolvers/user.resolver';
+import { ReactiveComponent, SearchBarComponent } from './components';
 
 const routes: Routes = [
   {
@@ -13,33 +11,12 @@ const routes: Routes = [
   {
     path: 'users',
     // component: TestComponent,
-    children: [
-      {
-        path: ':id/edit-user',
-        canActivate: [AutoricedGuard],
-        component: UserEditComponent,
-        data: {
-          title: 'Editar',
-          roles: ['admin', 'supervisor']
-        }
-      },
-      {
-        path: ':id/details',
-        component: UserDetailComponent,
-        canActivate: [AutoricedGuard],
-        data: {
-          title: 'Detalles'
-        },
-        resolve: {
-          user: UserResolver
-        }
-      }
-    ]
-  },
-  {
-    path: '**',
-    component: SearchBarComponent
+    loadChildren: () => import('./views/user/user.module').then(i => i.UserModule)
   }
+  // {
+  //   path: '**',
+  //   component: SearchBarComponent
+  // }
 ];
 
 @NgModule({
