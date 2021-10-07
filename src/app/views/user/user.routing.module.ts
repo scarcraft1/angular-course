@@ -6,30 +6,24 @@ import { UserDetailComponent, UserEditComponent } from './components';
 
 const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
-    children: [
-      {
-        path: ':id/edit-user',
-        // canActivate: [AutoricedGuard],
-        component: UserEditComponent,
-        data: {
-          title: 'Editar',
-          roles: ['admin', 'supervisor']
-        }
-      },
-      {
-        path: ':id/details',
-        component: UserDetailComponent,
-        // canActivate: [AutoricedGuard],
-        data: {
-          title: 'Detalles'
-        },
-        resolve: {
-          user: UserResolver
-        }
-      }
-    ]
+    path: ':id/edit-user',
+    canActivate: [AutoricedGuard],
+    component: UserEditComponent,
+    data: {
+      title: 'Editar',
+      roles: ['admin', 'supervisor']
+    }
+  },
+  {
+    path: ':id/details',
+    component: UserDetailComponent,
+    canActivate: [AutoricedGuard],
+    data: {
+      title: 'Detalles'
+    },
+    resolve: {
+      user: UserResolver
+    }
   }
 ];
 
@@ -37,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class UserRoutingModule {}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveComponent, SearchBarComponent } from './components';
+import { ReactiveComponent, SearchBarComponent, TestComponent } from './components';
 
 const routes: Routes = [
   {

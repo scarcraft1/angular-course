@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { COMPONENTS } from './components';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UserRoutingModule } from './user.routing.module';
 
 
 
@@ -13,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HttpClientModule,
+    UserRoutingModule,
     ReactiveFormsModule
   ]
 })
